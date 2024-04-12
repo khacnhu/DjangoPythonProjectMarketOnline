@@ -22,6 +22,17 @@
             </p>
         {% endif %}
 
+        {% if request.user == item.created_by %}
+        <div class="mt-6 p-6 bg-white rounded-xl">
+            <p>This is your item!</p>
+
+            {% comment %} <a href="{% url 'item:edit' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl">Edit</a> {% endcomment %}
+            <a href="{% url 'item:delete' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl">Delete</a>
+        </div>
+        {% else %}  
+        {% comment %} <a href="{% url 'conversation:new' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Contact seller</a> {% endcomment %}
+        {% endif %}
+
 
         <a href="#" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Contact seller</a>
 
