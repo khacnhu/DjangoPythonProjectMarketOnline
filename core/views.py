@@ -8,7 +8,7 @@ def index(request):
     items = Item.objects.filter(is_sold=False)
     categories = Category.objects.all()
     
-    return render(request,'core/index.html', {
+    return render(request,'core/items.html', {
         'categories': categories,
         'items': items
     })
